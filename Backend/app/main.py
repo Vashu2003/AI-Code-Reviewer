@@ -2,10 +2,11 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from dotenv import load_dotenv
-from app.schemas import CodeSubmission, CodeFeedback, SampleAnswerCreate
+from app.schemas import CodeSubmission, CodeFeedback, SampleAnswerCreate, SubmissionRead
 from app.database import init_db, SessionLocal
 from app.models import Submission, SampleAnswer
 from app.ai_utils import get_gemini_feedback, parse_ai_feedback
+from typing import List
 import difflib
 import os
 
@@ -120,3 +121,25 @@ def add_sample_answer(data: SampleAnswerCreate):
     db.close()
 
     return {"message": "Sample answer added successfully."}
+
+@app.get("/sample-questions")
+def get_sample_questions():
+    db = SessionLocal()
+    samples = db.query(SampleAnswer).all()
+    db.close()
+    return [
+        {
+            "id": s.id,
+            "question_title": s.question_title,
+            "language": s.language,
+            "ideal_code": s.ideal_code
+        }
+        for s in samples
+    ]
+
+@app.get("/submission-history", response_model=List[SubmissionRead])
+def get_history():
+    db = SessionLocal()
+    records = db.query(Submission).all()
+    db.close()
+    return records
