@@ -4,9 +4,13 @@ services:
     env: python
     plan: free
     region: oregon
+
     buildCommand: pip install -r requirements.txt
-    startCommand: ./start.sh
+
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+
     envVars:
       - key: GEMINI_API_KEY
-        value: your-api-key-here
+        value: AIzaSyAM2Zf3MzXbgd7WaL2ra7n04w56p_BRaTw
+
     autoDeploy: true
