@@ -4,14 +4,10 @@ services:
     env: python
     plan: free
     region: oregon
+    rootDir: Backend
     buildCommand: pip install -r requirements.txt
     startCommand: ./start.sh
     envVars:
       - key: GEMINI_API_KEY
         value: AIzaSyAM2Zf3MzXbgd7WaL2ra7n04w56p_BRaTw
-    buildFilter:
-      paths:
-        - Backend/**
-    rootDir: Backend
     autoDeploy: true
-
