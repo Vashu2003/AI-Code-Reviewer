@@ -7,7 +7,7 @@ const SubmissionHistory = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/submission-history");
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/submission-history`);
         setSubmissions(res.data);
       } catch (err) {
         console.error("Failed to load submission history", err);

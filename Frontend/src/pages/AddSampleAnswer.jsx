@@ -20,7 +20,7 @@ const AddSampleAnswer = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/add-sample-answer",
+        `${import.meta.env.VITE_API_BASE_URL}/add-sample-answer`,
         {
           question_title: questionTitle,
           language,

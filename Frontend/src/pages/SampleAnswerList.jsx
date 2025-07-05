@@ -9,7 +9,7 @@ const SampleAnswerList = () => {
   useEffect(() => {
     const fetchSamples = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/sample-questions");
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/sample-questions`);
         setSamples(res.data);
       } catch (err) {
         console.error("Error fetching sample answers:", err);

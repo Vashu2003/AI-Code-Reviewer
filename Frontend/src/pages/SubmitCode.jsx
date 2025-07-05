@@ -17,7 +17,7 @@ const SubmitCode = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/sample-questions");
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/sample-questions`);
         setQuestionOptions(res.data);
       } catch (err) {
         console.error("Failed to fetch questions", err);
@@ -32,7 +32,7 @@ const SubmitCode = () => {
     setFeedback(null);
 
     try {
-      const res = await axios.post("http://localhost:8000/submit-code", {
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/submit-code`, {
         code,
         language,
         question_title: questionTitle,
