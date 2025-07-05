@@ -45,7 +45,7 @@ const AddSampleAnswer = () => {
       </div>
 
       <div className="max-w-4xl mx-auto bg-gray-800/40 backdrop-blur-lg border border-gray-700 p-8 rounded-2xl shadow-xl">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 mb-3">
           <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-xl flex items-center justify-center">
             <Plus className="w-6 h-6 text-white" />
           </div>

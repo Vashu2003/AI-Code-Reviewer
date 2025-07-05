@@ -12,24 +12,23 @@ export default function FeedbackPanel({ feedback }) {
     similarity_score,
     is_similar_to_sample,
   } = feedback;
-  console.log(feedback);
 
   return (
     <div className="relative">
       <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl blur opacity-75"></div>
-      <div className="relative border border-green-600 rounded-xl p-5 bg-slate-900/90 backdrop-blur-sm text-white shadow-xl h-full overflow-y-auto space-y-4">
+      <div className="relative border border-gray-600 rounded-xl p-5 bg-slate-900/90 backdrop-blur-sm text-white shadow-xl h-full overflow-y-auto space-y-4">
         {/* Header */}
         <div className="flex items-center gap-3 mb-2">
-          <Sparkles className="w-6 h-6 text-green-400" />
-          <h2 className="text-xl font-bold text-green-400">
-            ⚡ AI Feedback Summary
-          </h2>
+          <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-xl flex items-center justify-center">
+            <Sparkles className="w-6 h-6 text-white" />
+          </div>
+          <h2 className="text-xl font-bold text-white">AI Feedback Summary</h2>
         </div>
 
         {/* Pass Status */}
         <div className="bg-gray-800/50 rounded-lg p-3 text-sm">
           <p className="flex items-center gap-2">
-            <strong className="text-green-300">Status:</strong>
+            <strong className="text-white">Status:</strong>
             {pass_status ? (
               <span className="text-green-400 bg-green-500/20 px-2 py-1 rounded-full text-xs">
                 ✅ Pass
@@ -46,7 +45,7 @@ export default function FeedbackPanel({ feedback }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
           {/* Readability */}
           <div className="bg-gray-800/50 rounded-lg p-3">
-            <p className="text-green-300 font-medium">Readability</p>
+            <p className="text-white font-medium">Readability</p>
             <div className="flex items-center gap-2 mt-1">
               <div className="flex-1 bg-gray-700 rounded-full h-2">
                 <div
@@ -62,7 +61,7 @@ export default function FeedbackPanel({ feedback }) {
 
           {/* Efficiency */}
           <div className="bg-gray-800/50 rounded-lg p-3">
-            <p className="text-green-300 font-medium">Efficiency</p>
+            <p className="text-white font-medium">Efficiency</p>
             <div className="flex items-center gap-2 mt-1">
               <div className="flex-1 bg-gray-700 rounded-full h-2">
                 <div
@@ -79,7 +78,7 @@ export default function FeedbackPanel({ feedback }) {
           {/* Similarity */}
           {similarity_score !== null && (
             <div className="bg-gray-800/50 rounded-lg p-3">
-              <p className="text-green-300 font-medium mb-2">
+              <p className="text-white font-medium mb-2">
                 Similarity to Sample
               </p>
               <div className="flex items-center gap-2 mb-2">

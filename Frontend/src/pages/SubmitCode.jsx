@@ -75,7 +75,7 @@ const SubmitCode = () => {
       <div className="relative z-10 max-w-6xl mx-auto p-6 space-y-8">
         {/* Feedback Panel */}
         {loading && (
-          <div ref={scrollRef} className="text-center text-green-400 animate-pulse text-lg mt-4">
+          <div ref={scrollRef} className="text-center text-gray-400 animate-pulse text-lg mt-4">
             <p>Analyzing your code... 🔍</p>
           </div>
         )}
@@ -85,7 +85,7 @@ const SubmitCode = () => {
             <div className="text-left">
               <button
                 onClick={() => setShowFeedback(false)}
-                className="mt-4 px-4 py-2 bg-gray-800 border border-green-500 rounded-lg text-sm hover:bg-gray-700 transition"
+                className="mt-4 px-4 py-2 bg-gray-800 border border-gray-500 rounded-lg text-sm hover:bg-gray-700 transition"
               >
                 ← Back to Editor
               </button>
@@ -177,7 +177,7 @@ const SubmitCode = () => {
                 <button
                   type="button"
                   onClick={() => setShowFeedback(true)}
-                  className="flex-1 bg-gray-800 border border-green-500 hover:bg-gray-700 text-white px-6 py-3 rounded-xl flex items-center justify-center gap-2"
+                  className="flex-1 bg-gray-800 border border-gray-500 hover:bg-gray-700 text-white px-6 py-3 rounded-xl flex items-center justify-center gap-2"
                 >
                   <Eye className="w-5 h-5" />
                   View Result
