@@ -1,17 +1,23 @@
-# Use a stable Python image
+# Use official Python image
 FROM python:3.11-slim
 
 # Set working directory
 WORKDIR /app
 
-# Copy only backend files
-COPY . .
+# Install required system packages (optional, can add git, build-essential if needed)
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy project files
+COPY . /app/
 
-# Expose for Uvicorn
+# Install Python dependencies
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+# Expose port (make sure it matches your server)
 EXPOSE 10000
 
-# Start FastAPI
+# Start the app using uvicorn
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "10000"]
