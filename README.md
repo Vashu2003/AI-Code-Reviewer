@@ -129,24 +129,24 @@ VITE_API_BASE_URL=http://localhost:8000
 <div align="center">
 <table>
   <tr>
-    <td><img src="link_to_image1" alt="Home Page" width="300"/></td>
-    <td><img src="link_to_image2" alt="Feedback Panel" width="300"/></td>
-    <td><img src="link_to_image3" alt="Sample Answer List" width="300"/></td>
+    <td><img src="Frontend/src/assets/ScreenShots/Screenshot 2025-07-05 210133.png" alt="Home Page" width="300"/></td>
+    <td><img src="Frontend/src/assets/ScreenShots/Screenshot 2025-07-05 211454.png" alt="Submit Code Page" width="300"/></td>
+    <td><img src="Frontend/src/assets/ScreenShots/Screenshot 2025-07-05 210331.png" alt="Feedback Panel" width="300"/></td>
   </tr>
   <tr>
+    <td align="center"><strong>Home Page</strong></td>
     <td align="center"><strong>Submit Code Page</strong></td>
-    <td align="center"><strong>AI Feedback Panel</strong></td>
-    <td align="center"><strong>Sample Answers</strong></td>
+    <td align="center"><strong>Feedback Panel</strong></td>
   </tr>
   <tr>
-    <td><img src="link_to_image4" alt="Add Sample" width="300"/></td>
-    <td><img src="link_to_image5" alt="History" width="300"/></td>
-    <td><img src="link_to_image6" alt="Mobile View" width="300"/></td>
+    <td><img src="Frontend/src/assets/ScreenShots/Screenshot 2025-07-05 210441.png" alt="Add Sample" width="300"/></td>
+    <td><img src="Frontend/src/assets/ScreenShots/Screenshot 2025-07-05 210457.png" alt="History" width="300"/></td>
+    <td><img src="Frontend/src/assets/ScreenShots/Screenshot 2025-07-05 210523.png" alt="Mobile View" width="300"/></td>
   </tr>
   <tr>
     <td align="center"><strong>Add Sample Answer</strong></td>
+    <td align="center"><strong>Sample Answers</strong></td>
     <td align="center"><strong>Submission History</strong></td>
-    <td align="center"><strong>Mobile View</strong></td>
   </tr>
 </table>
 </div>
