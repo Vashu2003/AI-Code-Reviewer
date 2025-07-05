@@ -11,3 +11,4 @@ services:
       - key: GEMINI_API_KEY
         value: AIzaSyAM2Zf3MzXbgd7WaL2ra7n04w56p_BRaTw
     autoDeploy: true
+    pythonVersion: 3.10.12
