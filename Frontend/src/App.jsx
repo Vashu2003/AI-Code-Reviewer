@@ -5,14 +5,15 @@ import AddSampleAnswer from './pages/AddSampleAnswer';
 import SampleAnswerList from './pages/SampleAnswerList';
 import SubmissionHistory from './pages/SubmissionHistory';
 import Navbar from './components/Navbar';
+import LandingPage from './pages/LandingPage';
 
 export default function App() {
   return (
     <Router>
       <Navbar />
-      <div className="p-4 bg-black">
+      <div>
         <Routes>
-          <Route path="/" element={<div>Welcome to AI Code Reviewer</div>} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/submit" element={<SubmitCode />} />
           <Route path="/add-sample" element={<AddSampleAnswer />} />
           <Route path="/sample-questions" element={<SampleAnswerList />} />

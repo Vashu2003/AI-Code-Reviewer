@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Sparkles } from "lucide-react";
 
 const SubmissionHistory = () => {
   const [submissions, setSubmissions] = useState([]);
@@ -7,7 +8,9 @@ const SubmissionHistory = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/submission-history`);
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/submission-history`
+        );
         setSubmissions(res.data);
       } catch (err) {
         console.error("Failed to load submission history", err);
@@ -18,31 +21,51 @@ const SubmissionHistory = () => {
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen p-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6 text-green-400">Submission History</h2>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative">
+      {/* Animated background elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl animate-pulse delay-2000"></div>
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto p-6">
+        <div className="flex items-center gap-3 mb-8">
+          <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-xl flex items-center justify-center">
+            <Sparkles className="w-6 h-6 text-white" />
+          </div>
+          <div>
+            <h2 className="text-3xl font-bold text-white">
+              Submission History
+            </h2>
+            <p className="text-gray-400">
+              Your past attempts and their AI evaluations
+            </p>
+          </div>
+        </div>
 
         {submissions.length === 0 ? (
-          <p className="text-gray-300">No submissions yet.</p>
+          <p className="text-gray-400">Loading...</p>
         ) : (
           <div className="space-y-6">
-            {submissions.map((sub) => (
+            {[...submissions].reverse().map((sub) => (
               <div
                 key={sub.id}
-                className="border border-gray-700 rounded-lg p-4 bg-slate-800 shadow-lg hover:shadow-green-500/30 transition"
+                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 transition-all hover:shadow-xl hover:border-gray-500"
               >
                 <div className="text-sm text-gray-400 mb-2">
                   <strong className="text-white">Submitted:</strong>{" "}
                   {new Date(sub.created_at).toLocaleString()}
                 </div>
 
-                <pre className="bg-slate-900 text-green-200 p-3 rounded-md text-sm overflow-x-auto max-h-60">
+                <pre className="bg-gray-900/60 text-gray-300 p-4 rounded-md text-sm overflow-x-auto max-h-60 border border-gray-700">
                   {sub.code}
                 </pre>
 
-                <div className="mt-3 text-sm space-y-1 text-gray-300">
+                <div className="mt-4 text-sm space-y-2 text-gray-300">
                   <div>
-                    <strong className="text-white">Language:</strong> {sub.language}
+                    <strong className="text-white">Language:</strong>{" "}
+                    {sub.language}
                   </div>
                   <div>
                     <strong className="text-white">Pass:</strong>{" "}
